@@ -23,14 +23,14 @@ outputDirDefault="/var/OCR/Output"
 # Modify these to fit your needs.
 # More information about command line arguments for OCRmyPDF: https://ocrmypdf.readthedocs.io/en/latest/cookbook.html
 # -l deu+eng: Gives a hint for OCRmyPDF which languages are contained in the PDF (requires the corresponding tesseract language files to be installed)
-# --output-type pdf: Creates a standard PDF as output (OCRmyPDF creates PDF/A documents by default)
-ocrmypdfCmdArgs="-l deu+eng --output-type pdf"
+# --output-type pdf: Creates a PDF/A as output
+ocrmypdfCmdArgs="-l deu+eng --output-type pdfa"
 
 # General command line arguments for tesseract calls (ONLY when converting image files to PDF).
 # Modify these to fit yout needs.
 # -l deu+eng: Gives a hint for tesseract which languages are contained in the image (requires the corresponding tesseract language files to be installed)
-# pdf: Ouput should be PDF
-imageConvertCmdArgs="-l deu+eng pdf"
+# pdf: Ouput should be PDF/A
+imageConvertCmdArgs="-l deu+eng pdfa"
 
 countPDF=0
 countImage=0
@@ -182,6 +182,10 @@ ocr_recursive() {
 				echo
 				countCopy=$((countCopy + 1))
 			fi
+			# keep timestamps and permissions
+			touch -r "${i}" "${outputDir}${tmp}"
+			chown --reference="${i}" "${outputDir}${tmp}"
+			chmod --reference="${i}" "${outputDir}${tmp}"
         fi
     done
 }
