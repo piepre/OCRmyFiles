@@ -1,10 +1,5 @@
-<a href="https://codeberg.org/DecaTec/OCRmyFiles">
-    <img alt="Get it on Codeberg" src="https://get-it-on.codeberg.org/get-it-on-blue-on-white.png" height="60">
-</a>
+### fork of: https://codeberg.org/DecaTec/OCRmyFiles
 
-### ⚠️ Archived, moved to Codeberg: https://codeberg.org/DecaTec/OCRmyFiles ⚠️
-
-Thus, this GitHub repository is **outdated** and **not longer maintained on GitHub**. Please update your references.
 
 # OCRmyFiles
 
